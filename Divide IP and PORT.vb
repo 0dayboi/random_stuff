@@ -1,5 +1,6 @@
 Imports System.String
-
+'this module will basically divide a given IP with PORT as a string into 2 different variables (ex.10.20.30.40:9090) into'
+'global_ip = 10.20.30.40 and global_port 9090'
 Module ProxyFunctions
     Public global_ip As String
     Public global_port As String
