@@ -1,9 +1,16 @@
+/* Written By : 0dayboi
+* This code is used for arduino obstacle aviodance robot with servo motor, the ultrasound sensor connected to the servo motor will check
+* both right side and left side and decide where to turn. To use this code you must have intermediate knowleadge about arduino, servo motor
+* arduino (i did with uno), L928H Motor Drive (Works with any motor drive), 2x DC Motors, Ultrasound Sensor.
+*/
+
+
 #include <NewPing.h>
 #include <Servo.h>
 #define TRIGGER_PIN  12  
 #define ECHO_PIN     13  
 #define MAX_DISTANCE 500 
-//Servo Left : 115, Servo Right : 15, Servo Forward : 60
+//Servo Left : 115, Servo Right : 15, Servo Forward : 60 (I Did this my way, but you can change this)
 //M1 : LEFT, M2 : Right
 NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE); 
 Servo myservo;
@@ -17,11 +24,11 @@ int left_dis;
 
 
 void setup() {
-  Serial.begin(115200);
-  myservo.attach(11);
-  pinMode(M1, OUTPUT);
+  Serial.begin(115200); //Begin Serial
+  myservo.attach(11);   //Define the pin of servo motor
+  pinMode(M1, OUTPUT);  //Define that motor pins are going for output.
   pinMode(M2, OUTPUT);
-  myservo.write(60);
+  myservo.write(60); //make the servo straight, 60 degree angle was for me , you can make however you want.
 }
 
 void loop() {
